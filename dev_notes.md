@@ -19,3 +19,16 @@
 	> rake test
 	- products_controller_tes.rb --> create model that passes validation
 	- test/fixtures/products.yml --> all fields should be valid
+7. Style Changes for entire site
+  - Layout changes in `application.html.erb` propagates through entire site
+    - `<% yield %>` is particularly important to load in page-specific data (ex: store/index.html.erb)
+  - `application.css.scss` will have `require .` which will load in all CSS 
+8. Testing
+  > rake test:controllers
+    - `assert_select` can help verify the HTML generated has expected CSS selectors 
+  > rake test:models 
+9. Caching: "Russian Doll Caching"
+  - Turn on/off caching in development mode --> environments/development.rb
+  - TODO: Figure out how to test caching and what expected results are
+  - Add code to return most recently updated object 
+  - Add caching layer to template so it knows what to update (ex: change to template, product)

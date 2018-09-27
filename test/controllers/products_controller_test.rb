@@ -14,6 +14,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+
+    assert_select '#columns #side a', minimum: 4
+    assert_select '#main table', 1
+    assert_select 'tr td dl dt', 'Programming Ruby 1.9'
+    assert_select '#price', /\$[,\d]+\.\d\d/
   end
 
   test "should get new" do

@@ -10,6 +10,7 @@
       <dl>
         <dt><%= product.title %></dt>
         <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
+        <dd id="price"><%= number_to_currency(product.price) %></dd>
       </dl>
     </td>
 
